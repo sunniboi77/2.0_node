@@ -39,15 +39,3 @@ const http = require('http'),
         }).listen(8080);
         console.log('My test server is running,and running on Port 8080.');
  
-
-
-// //fix url
-// let addr2 = 'http://localhost:8080/default.html?year=2017&month=february';
-// let q2 = url.parse(addr2, true);
-
-// console.log(q2.host); // returns 'localhost:8080'
-// console.log(q2.pathname); // returns '/default.html'
-// console.log(q2.search); // returns '?year=2017&month=february'
-
-// let q2data = q2.query; // returns an object: { year: 2017, month: 'february' }
-// console.log(qdata.month); // returns 'february'
