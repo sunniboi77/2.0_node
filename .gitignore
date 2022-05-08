@@ -1,0 +1,5 @@
+# dependencies
+/movie_api/node_modules/*
+/node_modules
+*.json
+log.txt

@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 /*
 http://127.0.0.1:8080
 */
 
+=======
+>>>>>>> 7a71c0e94e255eef918185ed3a5be65f51aedb71
 const http = require('http'),
   fs = require('fs'),
   url = require('url');
