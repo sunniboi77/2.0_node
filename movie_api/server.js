@@ -1,48 +1,96 @@
-<<<<<<< HEAD
+const express = require('express');
+const app = express();
+const morgan = require('morgan');
+const fs = require('fs')
+const path = require('path');
+
+const accessLogStream= fs.createWriteStream(path.join(__dirname,'log.txt'),{flags:'a'})
+
+
+let myLogger = (req, res, next) => {
+    console.log(req.url);
+    next();
+};
+
+let requestTime = (req,res,next) => {
+    req.requestTime= Date.now();
+    next();
+};
+
+let topMovies = [
+  {
+    title: 'Harry Potter and the Sorcerer\'s Stone',
+    year: '2001'
+  },
+  {
+    title: 'Lord of the Rings',
+    year: '2003'
+  },
+  {
+    title: 'Inception',
+    year: '2010'
+  },
+  {
+    title: 'Gatsby',
+    year: '2013'
+  },
+  {
+    title: 'Dango',
+    year: '2012'
+  },{
+    title: 'Fight club',
+    year: '1999'
+  },
+  {
+    title: 'Mad Max',
+    year: '2015'
+  },
+  {
+    title: 'Mask',
+    year: '1994'
+  },
+  {
+    title: 'Seven',
+    year: '1995'
+  },
+  {
+    title: 'Interstellar',
+    year: '2014'
+  }
+];
+
+//GET requests 
+app.use(morgan('combined', {stream:accessLogStream}));
+app.use(myLogger);
+app.use(requestTime);
+app.use(express.static('public'));
+
+
+app.get('/',(req,res) => {
+    let responseText = 'Welcome to Movies App';
+    responseText += '<small>Requested at: ' + req.requestTime + '<small>';
+    res.send(responseText);
+});
+
+
+app.get('/secretUrl', (req,res) => { 
+    let responseText = 'Welcome to secrete URL';
+    responseText += '<small>Requested at: ' + req.requestTime + '<small>';
+    res.send(responseText);
+});
+
 /*
-http://127.0.0.1:8080
+app.get('/documentation',(req,res) => {
+    res.sendFile('public/documentation.html',{root: __dirname});
+});
 */
 
-=======
->>>>>>> 7a71c0e94e255eef918185ed3a5be65f51aedb71
-const http = require('http'),
-  fs = require('fs'),
-  url = require('url');
+app.get('/movies',(req,res) => {
+    res.json(topMovies);
+});
 
-  http.createServer((request, response) => {
-        let addr = request.url,
-        q = url.parse(addr, true),
-        filePath = '';
 
-        fs.appendFile('log.txt', 'URL: ' + addr + '\nTimestamp: ' + new Date() + '\n\n', (err) => {
-            if (err) {
-              console.log(err);
-            } else {
-              console.log('Added to log.');
-            }
-        });
-
-        if (q.pathname.includes('documentation')) {
-            
-            filePath = (__dirname + '/documentation.html');
-          } else {
-            filePath = 'index.html';
-          }
-
-        
-          fs.readFile(filePath, (err, data) => {
-            if (err) {
-              throw err;
-            }
-        
-
-            
-            response.writeHead(200, { 'Content-Type': 'text/html' });
-            response.write(data);
-            response.end();
-        
-          });
-        
-        }).listen(8080);
-        console.log('My test server is running,and running on Port 8080.');
- 
+//listen for request 
+app.listen(9000,() => {
+    console.log('app listens on port 9000');
+});
