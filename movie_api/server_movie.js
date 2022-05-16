@@ -19,12 +19,8 @@ let requestTime = (req,res,next) => {
 app.use(requestTime);
 app.use(myLogger);
 
+app.use(bodyParser.json())
 
-const courses = [
-  {id: 1, name:'course1'},
-  {id: 2, name:'course2'},
-  {id: 3, name:'course3'},
-];
 
 let users = [
   {
@@ -54,6 +50,11 @@ let users = [
   },
   {
     id: 6,
+    name: 'ccc',
+    favMovies: []
+  },
+  {
+    id: 7,
     name: 'ccc',
     favMovies: []
   }
