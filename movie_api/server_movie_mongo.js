@@ -113,9 +113,6 @@ app.post('/users/:Username/movies/:MovieID',(req,res) => {
 });
 
 
-
-
-
 // Get all users
 app.get('/users',(req,res)=> {
   Users.find()
