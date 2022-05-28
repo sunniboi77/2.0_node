@@ -1,116 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <style>
-    .main {
-      display: flex;
-      padding-top: 50px;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      /* border:solid black 1px; */
-      text-align: center;
-    }
-
-    .container .head {
-      background-color: blue;
-      color: white;
-
-    }
-
-
-    .item {
-      height: 65px;
-      border: solid 1px black;
-    }
-
-    .c1 {
-      width: 22%;
-      align-content: stretch;
-    }
-
-    .c2 {
-      flex-basis: 22%;
-    }
-
-    .c3 {
-      flex-basis: 14%;
-    }
-
-    .c4 {
-
-      flex-basis: 29%;
-    }
-  </style>
-
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Movie node app</title>
-
-
-</head>
-
-<body>
-  <div>
-    <h1>myFlix</h1>
-    <h2>Movie Web Application</h2>
-    <p>myFlix is a web application that will grant users access to information about various
-      movies, directors, and genres. The user will be able to use the myFlix application
-      whenever they like to read information about different movies or update their user information,
-      for instance, their list of Favorite Movies.
-    </p>
-
-    <div class="main">
-      <div class="container">
-        <div class="item head c1">Business Logic</div>
-        <div class="item head c2">Url</div>
-        <div class="item head c3">HTTP</div>
-        <div class="item head c4">Request body format</div>
-        <div class="item c1">Get list of all movies</div>
-        <div class="item c2">/movies</div>
-        <div class="item c3">GET</div>
-        <div class="item c4">none</div>
-        <div class="item c1">Get list of all movies</div>
-        <div class="item c2">/users</div>
-        <div class="item c3">GET</div>
-        <div class="item c4">none</div>
-        <div class="item c1">Create user</div>
-        <div class="item c2">/[Users]</div>
-        <div class="item c3">POST</div>
-        <div class="item c4">A JSON object, {username,passoword,id,email,favMovies:[objectid,...] }</div>
-        <div class="item c1">Delete user</div>
-        <div class="item c2">/Users/[username]</div>
-        <div class="item c3">DELETE</div>
-        <div class="item c4">none</div>
-        <div class="item c1">Update user</div>
-        <div class="item c2">/Users/[Id]</div>
-        <div class="item c3">PUT</div>
-        <div class="item c4">A JSON object, {username,passoword,id,email,favMovies:[objectid,...] }</div>
-        <div class="item c1">Get / Find movies by director</div>
-        <div class="item c2">/movies/directors/[directorName]</div>
-        <div class="item c3">GET</div>
-        <div class="item c4">none</div>
-        <div class="item c1">Update users favorite movies</div>
-        <div class="item c2">/Users/[Id]/[movie_id]</div>
-        <div class="item c3">POST</div>
-        <div class="item c4">-</div>
-        <div class="item c1">Update users favorite movies</div>
-        <div class="item c2">/Users/[username]/movies/[movie_id]</div>
-        <div class="item c3">POST</div>
-        <div class="item c4">/Users/[username]/movies/[movie_id]</div>
-        <div class="item c1">Delete users favorite movies</div>
-        <div class="item c2">/Users/[username]/movies/[movie_id]</div>
-        <div class="item c3">DLETE</div>
-        <div class="item c4">/Users/[username]/movies/[movie_id]</div>
-      </div>
-
-
-    </div>
-</body>
-
-</html>
+{												
+  "simpleID":1,	"firstname":"kate",	"lastname":"habeck",	"username":"kate_1977",	"password":"kate1",	"email":"kate_1@gmail.com",	"birthDay":"1977.1.1.",	"married":"yes",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"yes",	"haircolor":"black",	"country":"USA",	"Life":{"young":[{"Bio":''Boring"}, {"Description": " nothing interesting  "}],"old":[{"Bio":''Boring"}, {"Description": " nothing interesting  "}]
+  "simpleID":2,	"firstname":"sue",	"lastname":"kovach",	"username":"sue_1977",	"password":"sue2",	"email":"sue_2@gmail.com",	"birthDay":"1977.2.1.",	"married":"no",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"no",	"haircolor":"blonde",	"country":"USA",	"Life":{"young":[{"Bio":''Boring"}, {"Description": " nothing interesting  "}]"old":[{"Bio":''Boring"}, {"Description": " nothing interesting  "}]
+  "simpleID":3,	"firstname":"allan",	"lastname":"peck",	"username":"allan_1978",	"password":"allan3",	"email":"allan_3@gmail.com",	"birthDay":"1978.3.2.",	"married":"yes",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"yes",	"haircolor":"black",	"country":"USA",	"Life":{"young":[{"Bio":''Boring"}, {"Description": " nothing interesting  "}]"old":[{"Bio":''happy"}, {"Description": " frenetic  "}]
+  "simpleID":4,	"firstname":"zack",	"lastname":"winslowh",	"username":"zack_1978",	"password":"zack4",	"email":"zack_4@gmail.com",	"birthDay":"1978.4.2.",	"married":"no",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"no",	"haircolor":"grey",	"country":"USA",	"Life":{"young":[{"Bio":''happy"}, {"Description": " frenetic  "}]"old":[{"Bio":''happy"}, {"Description": " frenetic  "}]
+  "simpleID":5,	"firstname":"steven",	"lastname":"harsh",	"username":"steven_1979",	"password":"steven5",	"email":"steven_5@gmail.com",	"birthDay":"1979.5.3.",	"married":"yes",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"yes",	"haircolor":"pink",	"country":"USA",	"Life":{"young":[{"Bio":''happy"}, {"Description": " frenetic  "}]"old":[{"Bio":''happy"}, {"Description": " frenetic  "}]
+  "simpleID":6,	"firstname":"nigel",	"lastname":"trem",	"username":"nigel_1979",	"password":"nigel6",	"email":"nigel_6@apple.com",	"birthDay":"1979.6.3.",	"married":"no",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"no",	"haircolor":"brown",	"country":"USA",	"Life":{"young":[{"Bio":''happy"}, {"Description": " frenetic  "}]"old":[{"Bio":''happy"}, {"Description": " frenetic  "}]
+  "simpleID":7,	"firstname":"nicky",	"lastname":"foley",	"username":"nicky_1980",	"password":"nicky7",	"email":"nicky_7@apple.com",	"birthDay":"1980.7.4.",	"married":"yes",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"yes",	"haircolor":"black",	"country":"USA",	"Life":{"young":[{"Bio":''happy"}, {"Description": " frenetic  "}]"old":[{"Bio":''boomer"}, {"Description": " would do it like this again  "}]
+  "simpleID":8,	"firstname":"oliver",	"lastname":"kamev",	"username":"oliver_1980",	"password":"oliver8",	"email":"oliver_8@apple.com",	"birthDay":"1980.8.4.",	"married":"no",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"no",	"haircolor":"blonde",	"country":"USA",	"Life":{"young":[{"Bio":''boomer"}, {"Description": " would do it like this again  "}]"old":[{"Bio":''boomer"}, {"Description": " would do it like this again  "}]
+  "simpleID":9,	"firstname":"bertold",	"lastname":"waltari",	"username":"bertold_1981",	"password":"bertold9",	"email":"bertold_9@apple.com",	"birthDay":"1981.9.5.",	"married":"yes",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"yes",	"haircolor":"black",	"country":"USA",	"Life":{"young":[{"Bio":''boomer"}, {"Description": " would do it like this again  "}]"old":[{"Bio":''boomer"}, {"Description": " would do it like this again  "}]
+  "simpleID":10,	"firstname":"mika",	"lastname":"jones",	"username":"mika_1981",	"password":"mika10",	"email":"mika_10@apple.com",	"birthDay":"1981.10.5.",	"married":"no",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"no",	"haircolor":"grey",	"country":"USA",	"Life":{"young":[{"Bio":''boomer"}, {"Description": " would do it like this again  "}]"old":[{"Bio":''happy"}, {"Description": " frenetic  "}]
+  "simpleID":11,	"firstname":"mikael",	"lastname":"woodworth",	"username":"mikael_1982",	"password":"mikael11",	"email":"mikael_11@gmail.com",	"birthDay":"1982.11.6.",	"married":"yes",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"yes",	"haircolor":"red",	"country":"Switzerland",	"Life":{"young":[{"Bio":''happy"}, {"Description": " frenetic  "}]"old":[{"Bio":''average"}, {"Description": " no one to hang out with  "}]
+  "simpleID":12,	"firstname":"joe",	"lastname":"tenesse",	"username":"joe_1982",	"password":"joe12",	"email":"joe_12@gmail.com",	"birthDay":"1982.12.6.",	"married":"no",	"favmovies":["Matrix","Avatar","Fight Club", "TOP GUN","Gone with Winds"],	"haskids":"no",	"haircolor":"bald",	"country":"USA",	"Life":{"young":[{"Bio":''average"}, {"Description": " no one to hang out with  "}]"old":[{"Bio":''average"}, {"Description": " no one to hang out with  "}]
+  "simpleID":13,	"firstname":"james",	"lastname":"williams",	"username":"james_1983",	"password":"james13",	"email":"james_13@gmail.com",	"birthDay":"1983.1.7.",	"married":"yes",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"yes",	"haircolor":"black",	"country":"USA",	"Life":{"young":[{"Bio":''average"}, {"Description": " no one to hang out with  "}]"old":[{"Bio":''tragic"}, {"Description": " better not know  "}]
+  "simpleID":14,	"firstname":"victor",	"lastname":"brecht",	"username":"victor_1983",	"password":"victor14",	"email":"victor_14@hotmail.com",	"birthDay":"1983.2.7.",	"married":"no",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"no",	"haircolor":"blonde",	"country":"FRANCE",	"Life":{"young":[{"Bio":''tragic"}, {"Description": " better not know  "}]"old":[{"Bio":''Boring"}, {"Description": " nothing interesting  "}]
+  "simpleID":15,	"firstname":"hugo",	"lastname":"schmidt",	"username":"hugo_1984",	"password":"hugo15",	"email":"hugo_15@hotmail.com",	"birthDay":"1984.3.8.",	"married":"yes",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"yes",	"haircolor":"black",	"country":"FRANCE",	"Life":{"young":[{"Bio":''Boring"}, {"Description": " nothing interesting  "}]"old":[{"Bio":''Boring"}, {"Description": " nothing interesting  "}]
+  "simpleID":16,	"firstname":"daniel",	"lastname":"assan",	"username":"daniel_1984",	"password":"daniel16",	"email":"daniel_16@hotmail.com",	"birthDay":"1984.4.8.",	"married":"no",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"no",	"haircolor":"grey",	"country":"FRANCE",	"Life":{"young":[{"Bio":''Boring"}, {"Description": " nothing interesting  "}]"old":[{"Bio":''sad"}, {"Description": " depressive  "}]
+  "simpleID":17,	"firstname":"ronny",	"lastname":"cheng",	"username":"ronny_1985",	"password":"ronny17",	"email":"ronny_17@hotmail.com",	"birthDay":"1985.5.9.",	"married":"yes",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"yes",	"haircolor":"pink",	"country":"FRANCE",	"Life":{"young":[{"Bio":''sad"}, {"Description": " depressive  "}]"old":[{"Bio":''sad"}, {"Description": " depressive  "}]
+  "simpleID":18,	"firstname":"dimitry",	"lastname":"chang",	"username":"dimitry_1985",	"password":"dimitry18",	"email":"dimitry_18@protonmail.com",	"birthDay":"1985.6.22.",	"married":"no",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"no",	"haircolor":"brown",	"country":"FRANCE",	"Life":{"young":[{"Bio":''sad"}, {"Description": " depressive  "}]"old":[{"Bio":''sad"}, {"Description": " depressive  "}]
+  "simpleID":19,	"firstname":"jonas",	"lastname":"burek",	"username":"jonas_1986",	"password":"jonas19",	"email":"jonas_19@protonmail.com",	"birthDay":"1986.7.31.",	"married":"yes",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"yes",	"haircolor":"black",	"country":"GERMANY",	"Life":{"young":[{"Bio":''sad"}, {"Description": " depressive  "}]"old":[{"Bio":''highlife"}, {"Description": " famous  "}]
+  "simpleID":20,	"firstname":"jack ",	"lastname":"tepes",	"username":"jack _1986",	"password":"jack 20",	"email":"jack _20@protonmail.com",	"birthDay":"1986.8.28.",	"married":"no",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"no",	"haircolor":"blonde",	"country":"GERMANY",	"Life":{"young":[{"Bio":''highlife"}, {"Description": " famous  "}]"old":[{"Bio":''highlife"}, {"Description": " famous  "}]
+  "simpleID":21,	"firstname":"hubert",	"lastname":"ogrinyev",	"username":"hubert_1987",	"password":"hubert21",	"email":"hubert_21@yahoo.com",	"birthDay":"1987.9.27.",	"married":"yes",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"yes",	"haircolor":"black",	"country":"GERMANY",	"Life":{"young":[{"Bio":''highlife"}, {"Description": " famous  "}]"old":[{"Bio":''highlife"}, {"Description": " famous  "}]
+  "simpleID":22,	"firstname":"michel",	"lastname":"hattamim",	"username":"michel_1987",	"password":"michel22",	"email":"michel_22@yahoo.com",	"birthDay":"1987.10.25.",	"married":"no",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"no",	"haircolor":"brown",	"country":"GERMANY",	"Life":{"young":[{"Bio":''highlife"}, {"Description": " famous  "}]"old":[{"Bio":''highlife"}, {"Description": " famous  "}]
+  "simpleID":22,	"firstname":"michel",	"lastname":"louvet",	"username":"michel_1987",	"password":"michel23",	"email":"michel_22@yahoo.com",	"birthDay":"1987.11.22.",	"married":"yes",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"yes",	"haircolor":"pink",	"country":"GERMANY",	"Life":{"young":[{"Bio":''highlife"}, {"Description": " famous  "}]"old":[{"Bio":''Boring"}, {"Description": " cool  "}]
+  "simpleID":22,	"firstname":"michel",	"lastname":"advozatti",	"username":"michel_1987",	"password":"michel24",	"email":"michel_22@yahoo.com",	"birthDay":"1987.12.21.",	"married":"no",	"favmovies":["Love,Death and Robots","Peakty Blinder", "Braveheart","Friends"],	"haskids":"no",	"haircolor":"bald",	"country":"GERMANY",	"Life":{"young":[{"Bio":''Boring"}, {"Description": " cool  "}]"old":[{"Bio":''Boring"}, {"Description": " cool  "}]
+  }												
+                          
+  
