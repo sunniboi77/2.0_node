@@ -15,7 +15,12 @@ let movieSchema = mongoose.Schema({
     },
     actors: [String],
     ImagePath: String,
-    Featured: Boolean
+    Featured: Boolean,
+    Year: Number,
+    Rated: String,
+    Runtime: String,
+    Awards :String, 
+
   });
 
   let userSchema = mongoose.Schema({
@@ -28,8 +33,8 @@ let movieSchema = mongoose.Schema({
     
   });
 
-  let Movie = mongoose.model('Movie',movieSchema);
-  let User = mongoose.model('User',userSchema);
+  let Movie = mongoose.model('movies',movieSchema);
+  let User = mongoose.model('users',userSchema);
 
   module.exports.Movie = Movie;
   module.exports.User = User; 

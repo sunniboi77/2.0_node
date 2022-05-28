@@ -77,6 +77,37 @@ app.post('/users',passport.authenticate('jwt', { session: false }),(req,res) => 
   });
 });
 
+//Add - Create Movie not working 
+app.post('/movies/add',passport.authenticate('jwt', { session: false }),(req,res) => {
+  Movies.findOne({ Title: req.body.Title})
+  .then((movie)=> {
+     if ((movie)) {
+       console.log(movie,'Title');
+       return res.status(401).send(req.body.Title + ' already exists')
+     } else {
+       Movies
+         .create({
+           Title: req.body.Title,
+           Year: req.body.Year,
+           Rated:req.body.Rated, 
+           Runtime: req.body.Runtime,  
+           Plot: req.body.Plot,
+           Awards : req.body.Awards
+         })
+         //callback takes document created as a parameter 
+         .then((movie) => {res.status(201).json(movie) })
+          .catch((error) => {
+            console.error(error);
+            res.status(500).send('Error'+error);
+           })
+     }
+   })
+ .catch((error)=>{
+   console.error(error);
+   res.status(500).send('Error    '+ error);
+ });
+});
+
 
 //Update USER by username
 app.put('/users/:Username', passport.authenticate('jwt', { session: false }),(req,res) => { 
@@ -157,7 +188,7 @@ app.get('/users/id/:ID',passport.authenticate('jwt', { session: false }), (req,r
 
 
 //Get all movie
-app.get('/movies',passport.authenticate('jwt', { session: false }) ,(req,res) => {
+app.get('/movies',passport.authenticate('jwt', { session: false })  ,(req,res) => {
   Movies.find()
   .then((Movies) => {
     res.json(Movies);
