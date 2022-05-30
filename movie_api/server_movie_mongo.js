@@ -23,6 +23,23 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public")); // serve static files
 //app.use(morgan("common")); // log requests to terminal
 
+const cors = require('cors');
+app.use(cors());
+
+
+let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null,true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      let message = ' The CORS policy for this app does not allow access from origin' + origin;
+      return callback(new Error (message), false);
+    }
+    return callback(null, true);
+  }
+}));
+
 let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
