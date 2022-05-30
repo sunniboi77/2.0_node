@@ -1,4 +1,4 @@
-//start work on 2.9 Authentication
+//start work on 2.10  Authentication
 const { join } = require('lodash');
 
 // This is the server file for task 2.8 with mongoose with real database 
@@ -15,13 +15,20 @@ const Models = require('./models.js');
 
 const Movies = Models.Movie;
 const Users = Models.User;
-
+app.use(passport.initialize());
+const { check, validationResult } = require('express-validator');
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public")); // serve static files
 //app.use(morgan("common")); // log requests to terminal
+
+mongoose.connect(process.env.CONNECTION_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
 
 const cors = require('cors');
 app.use(cors());
