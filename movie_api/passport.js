@@ -23,6 +23,10 @@ passport.use(new LocalStrategy({
          console.log('incorrect username');
           return callback(null,false,{message:'Incorrect schema or password'});
        }
+       if (!user) {
+         console.log('incorrect username');
+         return callback(null,false,{ message: 'Incorrect username.'})
+       }
       console.log('finished');
       return callback(null,user);
     });

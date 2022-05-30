@@ -25,11 +25,10 @@ app.use(express.static("public")); // serve static files
 
 const cors = require('cors');
 app.use(cors());
+let allowedOrigins = ['http://localhost:8080', 'http://testsite.com',  'http://localhost:1234'];
 
-
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
-
-app.use(cors({
+app.use(
+  cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null,true);
     if (allowedOrigins.indexOf(origin) === -1) {
@@ -65,8 +64,28 @@ res.send(responseText);
 });
 
 //Add - Create user
-app.post('/users',passport.authenticate('jwt', { session: false }),(req,res) => {
-   Users.findOne({ username: req.body.USERNAME, userid:req.body.id})
+/* We’ll expect JSON in this format
+{
+  id: Integer,
+  name: String,
+  password: String,
+  email: String,
+  birthday: Date,
+  favmovies: [String]
+}*/
+app.post('/users', 
+  [
+    check('username', 'Username is required').isLength({min: 5}),
+    check('username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+    check('password', 'Password is required').not().isEmpty(),
+    check('email', 'Email does not appear to be valid').isEmail()
+  ], passport.authenticate('jwt', { session: false }),(req,res) => {
+  let errors = validationResult(req);
+  if (!errors.isEmpty()){
+    return res.status(422).json({ errors:errors()});
+  }
+  let hashedPassword = Users.hashPassword(req.body.password);
+   Users.findOne({ username: req.body.USERNAME})
    .then((user)=> {
       if ((user)) {
         console.log(user,'userID', user.id);
@@ -75,7 +94,7 @@ app.post('/users',passport.authenticate('jwt', { session: false }),(req,res) => 
         Users
           .create({
             username: req.body.USERNAME,
-            password: req.body.password,
+            password: req.body.hashedPassword,
             id:req.body.id, 
             email: req.body.email,
             birthDay: req.body.birthDay
@@ -94,7 +113,7 @@ app.post('/users',passport.authenticate('jwt', { session: false }),(req,res) => 
   });
 });
 
-//Add - Create Movie not working 
+//Add - Create Movie is OK 
 app.post('/movies/add',passport.authenticate('jwt', { session: false }),(req,res) => {
   Movies.findOne({ Title: req.body.Title})
   .then((movie)=> {
@@ -300,4 +319,12 @@ app.delete('/users/:Username/movies/:MovieID',passport.authenticate('jwt', { ses
     });
 });
 
-app.listen(8080, () => console.log('listening on 8080'));   
+//localport disabled
+//app.listen(8080, () => console.log('listening on 8080'));   
+
+const port = process.env.PORT || 8080;
+app.listen(port, '0.0.0.0', () => {
+  console.log('Listening on Port ' + port);
+});
+
+ 
