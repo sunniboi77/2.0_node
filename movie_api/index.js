@@ -8,6 +8,7 @@ const { v4 } = require('uuid');
 const app = express();
 const bodyParser = require('body-parser');
 const uuid = require('uuid');
+const cors = require('cors');
 
 const mongoose = require('mongoose');
 const Models = require('./models.js');
@@ -34,7 +35,7 @@ app.use(express.static("public")); // serve static files
 
 
 
-const cors = require('cors');
+
 app.use(cors());
 let allowedOrigins = ['http://localhost:8080', 'http://testsite.com', 'http://localhost:1234'];
 
